@@ -1,0 +1,21 @@
+class Solution {
+public:
+    string largestNumber(vector<int>& nums) {
+        vector<string>v;
+        for(int i:nums){
+            v.push_back(to_string(i));
+        }
+        sort(v.begin(),v.end(),chk);
+        if(v[0]=="0"){
+            return "0";
+        }
+        string s="";
+        for(string i:v){
+            s+=i;
+        }
+        return s;
+    }
+    static bool chk(string a,string b){
+        return a+b > b+a;
+    }
+};
